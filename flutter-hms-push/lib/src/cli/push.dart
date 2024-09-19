@@ -157,7 +157,7 @@ abstract class Push {
   static Stream<RemoteMessage> get onMessageReceivedStream {
     return _remoteMessageReceiveEventChannel
         .receiveBroadcastStream()
-        .map((dynamic event) => RemoteMessage._fromMap(json.decode(event)));
+        .map((dynamic event) => RemoteMessage.fromMap(json.decode(event)));
   }
 
   /// Obtains the stream of [remoteMessageSendStatusEventChannel].
@@ -544,7 +544,7 @@ void callbackDispatcher() {
   WidgetsFlutterBinding.ensureInitialized();
 
   _backgroundMessageMethodChannel.setMethodCallHandler((MethodCall call) async {
-    final RemoteMessage remoteMessage = RemoteMessage._fromMap(
+    final RemoteMessage remoteMessage = RemoteMessage.fromMap(
       Map<String, dynamic>.from(call.arguments[1]),
     );
     final Function rawHandler = PluginUtilities.getCallbackFromHandle(

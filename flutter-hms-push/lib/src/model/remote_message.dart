@@ -127,7 +127,7 @@ class RemoteMessage {
   /// Different from the [getAnalyticInfo] method, this method directly returns the instance of the Map type.
   Map<String, String>? get getAnalyticInfoMap => analyticInfoMap;
 
-  factory RemoteMessage._fromMap(Map<dynamic, dynamic>? map) {
+  factory RemoteMessage.fromMap(Map<dynamic, dynamic>? map) {
     if (map == null) {
       return const RemoteMessage._();
     }
